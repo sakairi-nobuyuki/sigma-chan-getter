@@ -1,28 +1,6 @@
 version: '3'
 
 services:
-  db:
-    image: mysql:5.7
-    container_name: getter-db-host
-    environment:
-      MYSQL_ROOT_PASSWORD: root  # root user password
-      MYSQL_DATABASE: getter_db  # db name created initially
-      MYSQL_USER: docker         # user named as docker
-      MYSQL_PASSWORD: docker     # password for docker
-      TZ: 'Asia/Tokyo'           # timezone seetting in a conainer
-    ### setting to make the host paramanent. host_side: container_side
-    volumes:
-      - ./database/data:/var/lib/mysql               # MySQL data
-      - ./database/my.conf:/etc/mysql/conf.d/my.cnf  # MySQL setting file
-      - ./database/sql:/docker-entrypoint-initdb.d   # db initialization script
-    ### port-forwarding setting
-    ### port no. is 3306 as usual
-    ports:
-      - "3306:3306"
-    tty: true
-    stdin_open: true
-    networks:
-      - app-net
   minio:
     image: minio/minio:latest
     container_name: minio

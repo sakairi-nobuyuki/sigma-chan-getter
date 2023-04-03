@@ -20,7 +20,8 @@ ENV POETRY_VERSION=1.2.0rc1 \
 ### install python and poetry
 RUN sudo apt install --no-install-recommends -y python3.8 python3-pip python3.8-dev \
     python3-setuptools python3-distutils curl\
-    default-libmysqlclient-dev build-essential mysql-client && \
+    build-essential && \
+    # default-libmysqlclient-dev  mysql-client && \
     sudo update-alternatives --install /usr/local/bin/python python /usr/bin/python3.8 1 && \
     sudo pip install --upgrade pip
 
