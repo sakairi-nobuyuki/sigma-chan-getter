@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  ubuntu-base:
+    container_name: ubuntu-base
+    image: ubuntu-base
+    build:
+      context: .
+      target: ubuntu-base
+      args:
+        - USER_NAME=${USER}
+        - UID=1000
+        - GID=1000
+  twint-base:
+    container_name: twint-base
+    build:
+      context: .
+      target: twint-base
+    image: twint-base:latest
+  twint-python:
+    container_name: twint-python
+    build:
+      context: .
+      target: twint-python
+    image: twint-python:latest

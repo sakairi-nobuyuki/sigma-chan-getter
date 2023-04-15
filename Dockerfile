@@ -14,7 +14,7 @@ USER $UID
 WORKDIR $HOME
 
 ### Configure the environment
-ENV POETRY_VERSION=1.2.0rc1 \
+ENV POETRY_VERSION=1.3.1 \
     POETRY_HOME=$HOME
 
 ### install python and poetry
@@ -37,6 +37,5 @@ RUN curl -sSL https://install.python-poetry.org | POETRY_VERSION=$POETRY_VERSION
 
 
 COPY ./sigma_chan_getter_robo/ $HOME/sigma_chan_getter_robo/
-COPY .key/ $HOME/.key/
 COPY main.py $HOME/
 RUN sudo chown -R $USERNAME .  
